@@ -17,3 +17,4 @@ class TodoSerializer(serializers.ModelSerializer):
     def validate_title(self, value):
         if len(value) < 3:
             raise serializers.ValidationError('Todos must have at least 3 characters')
+        return value
