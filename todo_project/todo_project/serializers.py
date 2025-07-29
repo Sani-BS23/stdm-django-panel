@@ -4,9 +4,11 @@ from student.models import Student
 
 
 class StudentSerializer(serializers.ModelSerializer):
+    done_count = serializers.ReadOnlyField()
+
     class Meta:
         model = Student
-        fields = '__all__'
+        fields = ['id', 'name', 'email', 'done_count']
 
 
 class TodoSerializer(serializers.ModelSerializer):
