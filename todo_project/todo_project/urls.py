@@ -19,10 +19,12 @@ from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
 
+from todo_project.main_view import Index
 from todos.views import TodoList
 from todos.views import TodoDetails
 
 urlpatterns = [
+    path('', Index.as_view()),  # Changed from '/' to '' for the root path
     path('admin/', admin.site.urls),
     path('todo/', TodoList.as_view(), name='todo_list'),
     path('todo/<int:pk>/', TodoDetails.as_view(), name='todo_details'),
